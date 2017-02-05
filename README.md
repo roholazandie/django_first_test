@@ -1,7 +1,8 @@
 # django_first_test
 After installing Django. You need to install the following packages:
 
-Requirements:
+## Requirements:
+
 Celery:
   $ pip install celery
 

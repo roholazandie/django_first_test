@@ -7,27 +7,35 @@ After installing Django. You need to install the following packages:
   $ pip install celery
 
 ### Redis:
+```
   $ wget http://download.redis.io/releases/redis-3.2.7.tar.gz
   $ tar xzf redis-3.2.7.tar.gz
   $ cd redis-3.2.7
   $ make
- 
+```
+```
   To test that redis works perfectly:
   $ redis-server
   $ redis-cli ping
   redis should reply with: PONG
-
+```
 ## Usage:
 First you should fire redis server:
+```
   $ redis-server
+```
 
 Then you should fire celery:
+```
   $ celery -A mysite worker -l info
+```
   this command is executed in upper mysite dir(not the app in the mysite dir).
   celery will be prepared for new tasks.
 
 finally execute:
+```
   $ python manage.py runserver
+```
 go to http://localhost:8000/init_work
 refresh to see the progress made by the worker.
 

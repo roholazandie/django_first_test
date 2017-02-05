@@ -1,0 +1,33 @@
+{% load semanticui %}
+
+{% load static %}
+<html>
+<head>
+	<title>Semantic UI Forms for Django</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+	<link rel="stylesheet" href="{% static 'calendar.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+	<script src="{% static 'calendar.js' %}"></script>
+	</head>
+<body>
+<div class="ui tiny form">
+    <form action="" method="GET" class="ui form">
+
+            <input type="text" name="choice" />
+
+        <button type="submit" class="ui button" tabindex="0">Submit Order</button>
+
+    </form>
+</div>
+    <div class="ui icon input loading">
+      <input type="text" placeholder="Search...">
+      <i class="search icon"></i>
+    </div>
+    <textarea>{{output}}</textarea>
+
+</body>
+</html>
+
+
+

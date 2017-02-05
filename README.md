@@ -28,11 +28,10 @@ Then you should fire celery:
 
 finally execute:
   $ python manage.py runserver
-
-## References:
 go to http://localhost:8000/init_work
 refresh to see the progress made by the worker.
 
+## References:
 more info:
 https://realpython.com/blog/python/asynchronous-tasks-with-django-and-celery/
 https://www.digitalocean.com/community/tutorials/how-to-use-celery-with-rabbitmq-to-queue-tasks-on-an-ubuntu-vps

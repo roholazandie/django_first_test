@@ -3,10 +3,10 @@ After installing Django. You need to install the following packages:
 
 ## Requirements:
 
-Celery:
+### Celery:
   $ pip install celery
 
-Redis:
+### Redis:
   $ wget http://download.redis.io/releases/redis-3.2.7.tar.gz
   $ tar xzf redis-3.2.7.tar.gz
   $ cd redis-3.2.7
@@ -17,7 +17,7 @@ Redis:
   $ redis-cli ping
   redis should reply with: PONG
 
-Usage:
+## Usage:
 First you should fire redis server:
   $ redis-server
 
@@ -29,6 +29,7 @@ Then you should fire celery:
 finally execute:
   $ python manage.py runserver
 
+## References:
 go to http://localhost:8000/init_work
 refresh to see the progress made by the worker.
 

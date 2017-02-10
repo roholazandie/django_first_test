@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-urlpatterns = [url('^polls/', include('polls.urls')),
+urlpatterns = [
+    url('^polls/', include('polls.urls')),
  url('^detail/', include('polls.urls')),
+ url('^create_post/', include('polls.urls')),
  url('^init_work/', include('polls.urls')),
  url('^admin/', admin.site.urls)]

@@ -14,12 +14,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q_f27i$$j8aq4#_xyii-jcnllrd(3e6b0*u*tlw0!_9xtjmzq2'
 DEBUG = True
 ALLOWED_HOSTS = []
-INSTALLED_APPS = ['django.contrib.admin',
+INSTALLED_APPS = [
+    'django.contrib.admin',
  'django.contrib.auth',
  'django.contrib.contenttypes',
  'django.contrib.sessions',
  'django.contrib.messages',
- 'django.contrib.staticfiles']
+ 'django.contrib.staticfiles',
+'polls']
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware',
  'django.contrib.sessions.middleware.SessionMiddleware',
  'django.middleware.common.CommonMiddleware',

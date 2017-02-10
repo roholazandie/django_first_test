@@ -1,0 +1,90 @@
+<style>
+  .progress {
+   width:50%;
+   background:yellow;
+  }
+  .bar {
+   height:15px;
+   width:0%;
+   background:tomato;
+   text-align:right;
+  }
+ </style>
+<body>
+
+
+<form class="" action="/create_post/" id="target" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+  <input type="submit" name="name" value="submit">
+</form>
+
+
+<p>
+  Your Task is <span id="user-count"></span>!
+</p>
+
+{{job_id}}
+{{n_value}}
+
+<div class="status">
+   {% if job_id %}
+   <div class="progress">
+    <div class="bar"></div>
+   </div>
+   {% endif %}
+</div>
+
+<input id="returnBtn" type=button value="Previous Page" style="visibility:hidden; margin-top:10px;" onClick="javascript:history.go(-1);">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+{% if job_id %}
+<script type="text/javascript">
+
+  jQuery(document).ready(function(){
+
+          var poll_xhr;
+
+          var poll = function(){
+          var json_dump = "{{ data }}";
+          var job_id = "{{job_id}}";
+
+          console.log(json_dump);
+          poll_xhr = $.ajax({
+            url:'poll_state',
+            type: 'POST',
+            data: {
+                job_id: job_id,
+                csrfmiddlewaretoken: "{{csrf_token}}",
+            },
+            success: function(result) {
+                console.log(result)
+                        if (result.process_percent == null || result.process_percent == undefined) {
+                            willstop = 1;
+                            document.getElementById("user-count").textContent="DONE";
+                            jQuery('.bar').css({'width': 100 + '%'});
+                            jQuery('.bar').html(100 + '%');
+                            document.getElementById('returnBtn').style.visibility = 'visible';
+
+                           } else {
+
+                             jQuery('.bar').css({'width': result.process_percent + '%'});
+                             jQuery('.bar').html(result.process_percent + '%');
+                             document.getElementById("user-count").textContent="PROCRESSING";
+                           };
+                        // create the infinite loop of Ajax calls to check the state
+                        // of the current task
+                if (result!='SUCCESS'){
+                    poll()
+                }
+                        }
+          });
+    };
+
+      poll()
+
+  });
+
+</script>
+{% endif %}
+</body>

@@ -14,12 +14,12 @@ After installing Django. You need to install the following packages:
   $ cd redis-3.2.7
   $ make
 ```
+To test that redis works perfectly:
 ```
-  To test that redis works perfectly:
   $ redis-server
   $ redis-cli ping
-  redis should reply with: PONG
 ```
+redis should reply with: PONG
 ## Usage:
 First you should fire redis server:
 ```
@@ -30,8 +30,8 @@ Then you should fire celery:
 ```
   $ celery -A mysite worker -l info
 ```
-  this command is executed in upper mysite dir(not the app in the mysite dir).
-  celery will be prepared for new tasks.
+this command is executed in upper mysite dir(not the app in the mysite dir).
+celery will be prepared for new tasks.
 
 finally execute:
 ```

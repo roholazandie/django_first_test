@@ -4,8 +4,8 @@ import time
 import numpy as np
 app = Celery('tasks', backend='redis', broker='redis://localhost')
 
-@app.task
-def do_work():
+@app.task(bind=True)
+def do_work(n,t):
     """ Get some rest, asynchronously, and update the state all the time """
     for i in range(100):
         time.sleep(0.1)

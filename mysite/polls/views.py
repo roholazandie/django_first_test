@@ -93,7 +93,7 @@ def create_post(request):
         n = request.POST.get('n')
 
         form = UserForm()
-        job = do_work.delay()
+        job = do_work.delay((n, n))
         context = {
             'form': form,
             'job_id': job.id,
